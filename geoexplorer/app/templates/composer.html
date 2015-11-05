@@ -42,6 +42,11 @@
                     url: "http://v2.suite.opengeo.org/geoserver/ows",
                     title: "Remote Suite GeoServer"
                 },
+                nypl: {
+                    url: "http://server.arcgisonline.com/ArcGIS/rest/services/Demographics/USA_Projected_Population_Change/MapServer/tile/${z}/${y}/${x}",
+                    ptype: "gxp_xyzsource",
+                    title: "New York Public Library",
+                },
                 mapquest: {
                     ptype: "gxp_mapquestsource"
                 },
@@ -68,7 +73,7 @@
                     title: "MapQuest OpenStreetMap",
                     name: "osm",
                     group: "background"
-                }, {
+                },{
                     source: "ol",
                     group: "background",
                     fixed: true,
@@ -76,6 +81,14 @@
                     args: [
                         "None", {visibility: false}
                     ]
+                }, {
+                   "source": {"ptype": "gxp_olsource"},
+                   "type":"OpenLayers.Layer.XYZ",
+                   "title": "What the fuck?",
+                   group: "background",
+                   "args":[
+                       "hot", ["http://a.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png", "http://b.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png", "http://c.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png"], {"transitionEffect": "resize","attribution": "osm_attribution"}],
+                   "group":"background"
                 }],
                 center: [0, 0],
                 zoom: 2
